@@ -1,5 +1,5 @@
 declare global {
-    interface Icontriller {
+    interface Icontoller {
         (req : any, res : any) : Promise <any>;
     }
 }
