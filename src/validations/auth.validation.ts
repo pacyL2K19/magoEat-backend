@@ -26,3 +26,5 @@ const userSchema : Joi.ObjectSchema = Joi.object().keys({
         .max(10)
         .min(9)
 })
+
+export default userSchema;
