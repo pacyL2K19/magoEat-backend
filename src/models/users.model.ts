@@ -12,10 +12,10 @@ import {
 
 export interface IUserModel extends Document {
     username : String,
-    email : String,
     password : String,
+    adress : string,
     phone : number,
-    adress : string
+    mail : String,
 };
 
 /**
@@ -43,7 +43,7 @@ const UserSchema : Schema = new Schema ({
         required : true,
         unique : true
     },
-    email : {
+    mail : {
         type : String,
         required : true,
         unique : true,
