@@ -13,6 +13,8 @@ declare global {
             readonly GITHUB_CLIENT_SECRET: string;
             readonly FRONTEND_URL: string;
             readonly GEN_SALT : number;
+            readonly USERNAME_SMS : string,
+            readonly PASSWORD_SMS : string,
         }
     }
 }

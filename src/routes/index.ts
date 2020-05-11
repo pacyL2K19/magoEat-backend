@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import authRoutes from './auth.route';
+import msgRoute from './msg.route';
 // import ratingRoutes from './rating';
 // import restauRoutes from './restau';
 // import repasRoutes from './repas';
 
 const router = Router ();
 router.use(authRoutes);
+router.use(msgRoute);
 // router.use(ratingRoutes);
 // router.use(restauRoutes);
 // router.use(repasRoutes);
