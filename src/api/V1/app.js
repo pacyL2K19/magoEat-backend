@@ -6,7 +6,7 @@ const orderRoute = require('./router/rate.route')
 
 const app = express ()
 
-mongoose.connect('mongodb+srv://pacyL:newUser1@cluster0-ujmqc.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('SECRET_MONGO_URI',
     { useNewUrlParser: true,
       useUnifiedTopology: true })
     .then(() => console.log('Connexion à MongoDB réussie !'))
