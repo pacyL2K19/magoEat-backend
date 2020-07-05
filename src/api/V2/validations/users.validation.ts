@@ -23,9 +23,13 @@ const userSchemaValidator : Joi.ObjectSchema = Joi.object().keys({
         .trim()
         .lowercase()
         .pattern(new RegExp ('')),
-    telephone : Joi.number()
+    phone : Joi.number()
         .max(13)
-        .min(9)
+        .min(9),
+    accountType : Joi.string ()
+        .trim (),
+    profilePicture : Joi.string (),
+    signedOn : Joi.date ()
 })
 
 export default userSchemaValidator;

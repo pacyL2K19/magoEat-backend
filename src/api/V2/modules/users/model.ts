@@ -6,5 +6,6 @@ export interface IUser extends Document {
     password : String;
     accountType? : String;
     signedInOn : Date;
-    profileImage : String
+    profileImage : String,
+    adress? : String
 }
