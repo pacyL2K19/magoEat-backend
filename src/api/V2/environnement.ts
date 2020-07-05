@@ -29,15 +29,15 @@ class Environment {
     getDBName () : String {
         if (this.environment === Environments.dev_environnement ) {
             /**
-             * In developpement :: port 8081
+             * create database for each environment
              */
-            return process.env.DATABASE_URL
+            return 'mago_eat_dev'
         } else if (this.environment === Environments.local_environnement ) {
-            return process.env.DATA_BASE_LOCAL
+            return 'mago_eat_test'
         } else if (this.environment === Environments.prod_environnement ) {
-            return process.env.DATA_BASE_URL
+            return 'mago_eat_prod'
         } else {
-            return 'any_db'
+            return 'magoeat_any_db'
         }
     }
 }
