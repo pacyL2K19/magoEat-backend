@@ -1,5 +1,6 @@
 import { IUser } from './model';
-import { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
+import { accountType } from '../common/constants'
 
 /**
  * @mongoose 
@@ -13,5 +14,29 @@ const UserSchema : Schema = new Schema ({
         required : true,
         unique : true,
         trim : true
+    },
+    password : {
+        type : String,
+        required : true
+    },
+    adress : {
+        type : String,
+    },
+    phone : {
+        type : String,
+    },
+    accountType : {
+        type : accountType
+    },
+    profilePicture : {
+        type : String
+    },
+    mail : {
+        type : String
+    },
+    signedOn : {
+        type : Date
     }
 })
+
+export default mongoose.model('User', UserSchema);
