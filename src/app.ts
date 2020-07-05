@@ -34,6 +34,7 @@ class App {
             useFindAndModify : false
         })
     }
+    
 }
 
 export default new App ().app;
