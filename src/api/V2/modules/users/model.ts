@@ -4,5 +4,7 @@ export interface IUser {
     mail : String;
     phone : String;
     password : String;
-    accountType? : String
+    accountType? : String;
+    signedInOn : Date;
+    profileImage : String
 }
