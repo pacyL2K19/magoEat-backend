@@ -1,5 +1,6 @@
-export interface IOrder {
-    _id? : String;
+import { Document } from 'mongoose'
+
+export interface IOrder extends Document {
     image : String;
     averageRate : number;
     price : String;

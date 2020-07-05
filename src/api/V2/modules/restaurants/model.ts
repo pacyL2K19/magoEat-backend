@@ -1,5 +1,5 @@
-export interface IRestaurant {
-    _id? : String;
+import { Document } from 'mongoose';
+export interface IRestaurant extends Document{
     label : String;
     averageRate? : number;
     description : String;
