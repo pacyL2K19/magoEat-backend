@@ -27,7 +27,8 @@ export const signupValidation = Joi.object().keys({
     username : valideUsername,
     password : validePassword,
     mail : validMail,
-    adress : 
+    adress : Joi.string().regex(adressRegex).required(),
+    photo : stringField
 })
 
 const userSchemaValidator : Joi.ObjectSchema = Joi.object().keys({
