@@ -5,6 +5,10 @@ import Joi from '@hapi/joi';
  * creating a user validated schema by 
  * @Joi API
  */
+/**
+ * @author Pacifique Linjanja
+ * @constants to be exported
+ */
 const valideUsername = Joi.string().min(4).alphanum().max(20).required()
 const validePassword = Joi.string().required().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})/)
 const phoneRegexp = new RegExp(
@@ -16,7 +20,7 @@ const adressRegex = new RegExp(
     ''
 )
 const validMail = Joi.string().email({ minDomainSegments : 2, tlds : { allow : ['.com', '.org', '.net', '.cd']}})
-const stringField = Joi.string().min(5).max(120).regex(phoneRegexp)
+const stringField = Joi.string().min(5).max(120).optional()
 
 export const loginValidation = Joi.object().keys({
     phone : phoneRegexp,
@@ -28,33 +32,7 @@ export const signupValidation = Joi.object().keys({
     password : validePassword,
     mail : validMail,
     adress : Joi.string().regex(adressRegex).required(),
-    photo : stringField
+    photo : stringField,
+    accountType : Joi.string().trim(),
+    signedOn : Joi.date()
 })
-
-const userSchemaValidator : Joi.ObjectSchema = Joi.object().keys({
-    username : Joi.string()
-        .min(4)
-        .alphanum()
-        .max(20)
-        .required(),
-    password : Joi.string()
-    .required()
-    .alphanum(),
-    email : Joi.string()
-        .email({ minDomainSegments : 2, tlds : { allow : ['.com', '.net', '.org']}})
-        .required(),
-    adress : Joi.string()
-        .alphanum()
-        .trim()
-        .lowercase()
-        .pattern(new RegExp ('')),
-    phone : Joi.number()
-        .max(13)
-        .min(9),
-    accountType : Joi.string ()
-        .trim (),
-    profilePicture : Joi.string (),
-    signedOn : Joi.date ()
-})
-
-export default userSchemaValidator;
