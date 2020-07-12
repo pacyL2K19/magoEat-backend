@@ -9,5 +9,6 @@ export const restauValidation = Joi.object().keys({
     label : validRestaurantName,
     picture : stringField,
     averageRating,
-    
+    adress : stringField,
+    description : stringField
 })
