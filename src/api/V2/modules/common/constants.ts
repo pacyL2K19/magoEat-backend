@@ -14,3 +14,7 @@ export enum accountType {
     restauOwner = 'restau_owner',
     singleSeller = 'single_seller'
 }
+
+export enum devEnvironnement {
+    
+}
