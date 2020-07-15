@@ -16,6 +16,9 @@ class Validator {
     public getLogin () : any {
         return this.loginValidation
     }
+    public getrRestau () : any {
+        return this.restauValidation
+    }
 }
 
 export default new Validator ()
