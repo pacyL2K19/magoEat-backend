@@ -1,10 +1,12 @@
+import { repasValidation } from './repas.validation';
 import {loginValidation, signupValidation} from './users.validation';
 import { restauValidation } from './restauvants.validation'
 
 class Validator {
     private loginValidation : any = loginValidation;
     private signupValidation : any = signupValidation;
-    private restauValidation : any = restauValidation
+    private restauValidation : any = restauValidation;
+    private repasValidation : any = repasValidation
     constructor () {
         // to be updated
     }
@@ -18,6 +20,9 @@ class Validator {
     }
     public getrRestau () : any {
         return this.restauValidation
+    }
+    public getRepas () : any {
+        return  this.repasValidation
     }
 }
 
