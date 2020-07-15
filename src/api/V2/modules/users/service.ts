@@ -7,7 +7,11 @@ export default class UserService {
     public createUser (userParams : IUser, res : Response, req : Request, callback : any ) {
         const user = new User (userParams)
         user.save()
-            .then()
+            .then(user => {
+                res.status(statusCode.success).json({
+                    
+                })
+            })
             .catch((err) => {
                 res.status(statusCode.bad_request).json({
                     success : false,
