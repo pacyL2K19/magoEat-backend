@@ -5,7 +5,7 @@ const validRestaurantName = Joi.string().min(3).max(25).required()
 const stringField = Joi.string().min(3).max(120)
 const averageRating = Joi.number().required()
 
-export const restauValidation = Joi.object().keys({
+export const restauValidation : Joi.ObjectSchema = Joi.object().keys({
     label : validRestaurantName,
     picture : stringField,
     averageRating,
