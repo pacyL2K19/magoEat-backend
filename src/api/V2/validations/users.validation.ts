@@ -22,12 +22,12 @@ const adressRegex = new RegExp(
 const validMail = Joi.string().email({ minDomainSegments : 2, tlds : { allow : ['.com', '.org', '.net', '.cd']}})
 const stringField = Joi.string().min(5).max(120).optional()
 
-export const loginValidation = Joi.object().keys({
+export const loginValidation : Joi.ObjectSchema = Joi.object().keys({
     phone : phoneRegexp,
     password : validePassword
 })
 
-export const signupValidation = Joi.object().keys({
+export const signupValidation : Joi.ObjectSchema = Joi.object().keys({
     username : valideUsername,
     password : validePassword,
     mail : validMail,
