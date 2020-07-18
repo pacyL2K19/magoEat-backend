@@ -39,7 +39,7 @@ export class UserController {
                         successResponse(res, 'Ouverture de session reussie', req.body)
                     })
                     .catch((err) => {
-
+                        
                     })
             })
             .catch()
