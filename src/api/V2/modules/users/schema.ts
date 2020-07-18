@@ -1,6 +1,6 @@
 import { IUser } from './model';
 import mongoose, { Schema } from 'mongoose';
-import { accountType } from '../common/constants'
+// import { accountType } from '../common/constants'
 
 /**
  * @mongoose 
@@ -26,7 +26,7 @@ const UserSchema : Schema = new Schema ({
         type : String,
     },
     accountType : {
-        type : accountType
+        type : String,
     },
     profilePicture : {
         type : String
@@ -39,4 +39,4 @@ const UserSchema : Schema = new Schema ({
     }
 })
 
-export default mongoose.model('User', UserSchema);
+export default mongoose.model<IUser>('User', UserSchema);

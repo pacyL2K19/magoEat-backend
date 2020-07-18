@@ -1,5 +1,6 @@
-import { successResponse, faillureResponse } from './../modules/common/service';
-import { statusCode } from './../modules/common/constants';
+import { IUser } from './../modules/users/model';
+import { successResponse, faillureResponse, mongoError } from './../modules/common/service';
+import { statusCode, accountType } from './../modules/common/constants';
 import { loginValidation, signupValidation } from './../validations/users.validation';
 import { Response, Request } from 'express';
 import User from '../modules/users/schema'
@@ -60,8 +61,22 @@ export class UserController {
          */
         bcrypt.hash(value.password, process.env.GEN_SALT)
             .then((hashPswd) => {
-                this.userService.createUser(req.body, (err, ) => {
-                    
+                const newUser : IUser = new User ({
+                    username : req.body.username,
+                    mail : req.body.mail,
+                    phone : req.body.phone,
+                    password : hashPswd,
+                    profilePicture : '',
+                    accountype : accountType.buyer,
+                    signedOn : Date.now(),
+                    adress : req.body.adress
+                })
+                this.userService.createUser(newUser, (error : any, newUser : any) => {
+                    if (error) {
+                        mongoError(error, res)
+                    } else {
+                        successResponse(res, `Creation de compte reussie, veuillez vous connexter avec vos nouveaux identifiants`, newUser)
+                    }
                 })
             })
             .catch()
