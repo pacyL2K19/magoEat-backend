@@ -1,4 +1,4 @@
-import { successResponse } from './../modules/common/service';
+import { successResponse, faillureResponse } from './../modules/common/service';
 import { statusCode } from './../modules/common/constants';
 import { loginValidation } from './../validations/users.validation';
 import { Response, Request } from 'express';
@@ -39,15 +39,20 @@ export class UserController {
                         successResponse(res, 'Ouverture de session reussie', req.body)
                     })
                     .catch((err) => {
-                        
+                        faillureResponse(res, 'Quwlque chose ne va pas, veuillez reessayer', req.body)
                     })
             })
-            .catch()
+            .catch((err) => {
+                faillureResponse(res, 'Quwlque chose ne va pas, veuillez reessayer', req.body)
+            }))
     }
     public async signup (req : Request, res : Response) {
 
     } 
     public async receiveSmsFromAdmin () {
+
+    }
+    public async placeOrder () {
 
     }
 }
