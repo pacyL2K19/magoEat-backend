@@ -1,6 +1,6 @@
 import { successResponse, faillureResponse } from './../modules/common/service';
 import { statusCode } from './../modules/common/constants';
-import { loginValidation } from './../validations/users.validation';
+import { loginValidation, signupValidation } from './../validations/users.validation';
 import { Response, Request } from 'express';
 import User from '../modules/users/schema'
 import * as bcrypt from 'bcrypt';
@@ -8,6 +8,7 @@ import validations from '../validations';
 import UserService from '../modules/users/service'
 
 export class UserController {
+    private userService : UserService = new UserService ()
     public login (req : Request, res : Response ) {
         // first, let validate data : 
         const {error, value} = loginValidation.validate(req.body)
@@ -44,10 +45,26 @@ export class UserController {
             })
             .catch((err) => {
                 faillureResponse(res, 'Quwlque chose ne va pas, veuillez reessayer', req.body)
-            }))
+            })
     }
     public async signup (req : Request, res : Response) {
-
+        const { error, value } = signupValidation.validate(req.body)
+        if (error !== undefined) {
+            res.status(statusCode.bad_request).json({
+                success : false,
+                message : `Rassurez vous d'avoir rempli `
+            })
+        }
+        /**
+         * Use bcrypt to hash password
+         */
+        bcrypt.hash(value.password, process.env.GEN_SALT)
+            .then((hashPswd) => {
+                this.userService.createUser(req.body, (err, ) => {
+                    
+                })
+            })
+            .catch()
     } 
     public async receiveSmsFromAdmin () {
 
