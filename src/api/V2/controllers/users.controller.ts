@@ -79,7 +79,12 @@ export class UserController {
                     }
                 })
             })
-            .catch()
+            .catch((error) => {
+                res.status(statusCode.bad_request).json({
+                    message : 'Quelque chose ne marche pas comme prevu, veuillez reessayer',
+                    success : false
+                })
+            })
     } 
     public async receiveSmsFromAdmin () {
 
