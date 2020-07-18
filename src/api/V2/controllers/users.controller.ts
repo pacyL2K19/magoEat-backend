@@ -5,7 +5,7 @@ import { loginValidation, signupValidation } from './../validations/users.valida
 import { Response, Request } from 'express';
 import User from '../modules/users/schema'
 import * as bcrypt from 'bcrypt';
-import validations from '../validations';
+// import validations from '../validations';
 import UserService from '../modules/users/service'
 
 export class UserController {
