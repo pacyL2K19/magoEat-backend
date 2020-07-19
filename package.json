@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "start": "npx tsc && node dist/index.js",
-    "dev": "concurrently -n \"TS, Node \" \"npx tsc --watch\" \"nodemon dist/index.js\""
+    "dev": "tsc && nodemon ./dist/server.js"
   },
   "repository": {
     "type": "git",
