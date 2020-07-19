@@ -1,8 +1,10 @@
+import { CommonRoutes } from './api/V2/routes/common.routes';
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import * as mongoose from 'mongoose';
 import * as cors from 'cors'
 import * as helmet from 'helmet'
+import { UserRoutes } from './api/V2/routes/users.routes';
 
 class App {
     public app : express.Application;
@@ -12,11 +14,15 @@ class App {
      * As you can face tsc trouble when you compile
      */
     public mongoUrl : string = process.env.DATABASE_URL; 
+    private userRoutes : UserRoutes = new UserRoutes ()
+    private commonRoute : CommonRoutes = new CommonRoutes () 
 
     constructor () {
         this.app = express ();
         this.configApp ();
         this,this.setupDB ();
+        this.userRoutes.route(this.app)
+        this.commonRoute.route(this.app)
     }
 
     private configApp () : void {
