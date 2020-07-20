@@ -61,5 +61,17 @@
 
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
-  }
+  },
+  "exclude": [
+    "src/api/V1",
+    "node_modules",
+    "src/controllers",
+    "src/helpers",
+    "src/middleware",
+    "src/models",
+    "src/routes",
+    "src/types",
+    "src/utils",
+    "src/validsations"
+  ]
 }

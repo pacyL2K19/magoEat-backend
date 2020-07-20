@@ -84,8 +84,8 @@ export const sendConfMess = (req : Request, res : Response, next : NextFunction)
     }
 
     const phone : number = req.body.phone;
-    const username : string = process.env.USERNAME_SMS;
-    const password : string = process.env.PASSWORD_SMS;
+    const username : string = '';
+    const password : string = '';
     const source : string = 'MAGOEAT APPLICATION';
     let msg = req.body.msgDetails + ' ' + req.body.msgCode;
     request1('http://api.rmlconnect.net/bulksms/bulksms?username='+username+'&password='+password+'&type=0&dlr=1&destination='+phone+'&source='+source+'&message='+msg, function (error1, response1, body1) {
