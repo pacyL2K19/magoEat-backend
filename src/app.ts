@@ -1,9 +1,9 @@
 import { CommonRoutes } from './api/V2/routes/common.routes';
 import * as bodyParser from 'body-parser';
-import * as express from 'express';
+import express from 'express';
 import * as mongoose from 'mongoose';
-import * as cors from 'cors'
-import * as helmet from 'helmet'
+import cors from 'cors';
+import helmet from 'helmet';
 import { UserRoutes } from './api/V2/routes/users.routes';
 
 class App {
@@ -13,7 +13,7 @@ class App {
      * So remember to use string type instead of String wich is an object
      * As you can face tsc trouble when you compile
      */
-    public mongoUrl : string = process.env.DATABASE_URL; 
+    public mongoUrl : string | undefined = process.env.DATABASE_URL; 
     private userRoutes : UserRoutes = new UserRoutes ()
     private commonRoute : CommonRoutes = new CommonRoutes () 
 
@@ -33,12 +33,14 @@ class App {
     }
 
     private setupDB () : void {
-        mongoose.connect (this.mongoUrl, {
-            useNewUrlParser : true,
-            useUnifiedTopology : true,
-            useCreateIndex : true,
-            useFindAndModify : false
-        })
+        if (this.mongoUrl) {
+            mongoose.connect (this.mongoUrl, {
+                useNewUrlParser : true,
+                useUnifiedTopology : true,
+                useCreateIndex : true,
+                useFindAndModify : false
+            })
+        }
     }
     
 }

@@ -59,7 +59,7 @@ export class UserController {
         /**
          * Use bcrypt to hash password
          */
-        bcrypt.hash(value.password, process.env.GEN_SALT)
+        bcrypt.hash(value.password, process.env.GEN_SALT ? process.env.GEN_SALT : 10)
             .then((hashPswd) => {
                 const newUser : IUser = new User ({
                     username : req.body.username,
