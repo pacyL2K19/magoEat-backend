@@ -2,8 +2,8 @@ import * as mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
 import Logger from '../utils/Logger';
 dotenv.config();
-
-export const db : mongoose.Connection = mongoose.createConnection(process.env.DATABASE_URL,
+const dbUrl = process.env.DATABASE_URL ? process.env.DATABASE_URL : ''
+export const db : mongoose.Connection = mongoose.createConnection(dbUrl,
     { 
         // connection options
         useNewUrlParser: true,
