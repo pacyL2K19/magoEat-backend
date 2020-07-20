@@ -1,4 +1,3 @@
-"use-strict"
 import app from './app'
 import env from './api/V2/environnement'
 
