@@ -12,7 +12,7 @@ export default class UserService {
         User.findOne(query, callback)
     }
 
-    public updateUser (userParams : IUser, callback) {
+    public updateUser (userParams : IUser, callback : any){
         const query = {_id : userParams._id}
         User.updateOne(query, userParams, callback)
     }

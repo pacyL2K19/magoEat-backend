@@ -23,6 +23,7 @@
     "@types/bcrypt": "^3.0.0",
     "@types/body-parser": "^1.19.0",
     "@types/cors": "^2.8.6",
+    "@types/hapi__joi": "^17.1.4",
     "@types/helmet": "0.0.47",
     "@types/mongoose": "^5.7.32",
     "bcrypt": "^5.0.0",
