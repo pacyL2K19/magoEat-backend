@@ -1,10 +1,10 @@
-import { CommonRoutes } from './api/V2/routes/common.routes';
+import { CommonRoutes } from './routes/common.routes';
 import * as bodyParser from 'body-parser';
 import express from 'express';
 import * as mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
-import { UserRoutes } from './api/V2/routes/users.routes';
+import { UserRoutes } from './routes/users.routes';
 
 class App {
     public app : express.Application;

@@ -1,5 +1,5 @@
 import app from './app'
-import env from './api/V2/environnement'
+import env from './environnement'
 
 const PORT = env.getPort()
 app.listen(PORT, () => {
