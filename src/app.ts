@@ -40,6 +40,12 @@ class App {
                 useCreateIndex : true,
                 useFindAndModify : false
             })
+                .then(() => {
+                    console.log('Connected on mongodb')
+                })
+                .catch(() => {
+                    console.log('Failled to connect')
+                })
         }
     }
     
