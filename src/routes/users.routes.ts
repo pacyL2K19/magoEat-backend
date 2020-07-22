@@ -7,7 +7,7 @@ export class UserRoutes {
         app.post('api/v2/login', (req : Request, res : Response) => {
             this.userController.login(req, res)
         })
-        app.post('api/vs/signup', (req : Request, res : Response) => {
+        app.post('api/v2/signup', (req : Request, res : Response) => {
             this.userController.signup(req, res)
         })
     }

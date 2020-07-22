@@ -17,7 +17,7 @@ class Environment {
             /**
              * In developpement :: port 8081
              */
-            return 8081
+            return 5555
         } else if (this.environment === Environments.local_environnement ) {
             return 5000
         } else if (this.environment === Environments.prod_environnement ) {
