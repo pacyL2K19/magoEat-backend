@@ -1,5 +1,6 @@
 import { Application, Response, Request, NextFunction } from 'express';
 import { statusCode } from '../modules/common/constants';
+import User from '../modules/users/schema'
 
 export class CommonRoutes {
     public route (app : Application) {
@@ -10,5 +11,9 @@ export class CommonRoutes {
                 status : 'Dangerous'
             })
         })
+
+        // app.get('/', (req : Request, res : Response, NextFunction) => {
+            
+        // })
     }
 }
