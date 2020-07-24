@@ -7,6 +7,7 @@ const validRestaurantID = Joi.string().required().alphanum()
 export const orderValidation = Joi.object().keys({
     label : stringField,
     restauID : validRestaurantID,
+    image : stringField,
     description : stringField,
     averageRate : validRate
 })
