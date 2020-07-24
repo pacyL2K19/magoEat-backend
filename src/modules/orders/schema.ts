@@ -6,15 +6,15 @@ const commonOptions = {
     trim : false 
 }
 
-// const OrderSchema : Schema = new Schema ({
-//     label : {
-//         ...commonOptions,
-//         trim : true
-//     },
-//     image : commonOptions,
-//     averageRate : commonOptions,
-//     price : commonOptions,
-//     restaurantID : commonOptions
-// })
+const OrderSchema : Schema = new Schema ({
+    label : {
+        ...commonOptions,
+        trim : true
+    },
+    image : commonOptions,
+    averageRate : commonOptions,
+    price : commonOptions,
+    restaurantID : commonOptions
+})
 
-// export default model<IOrder>('Orders', OrderSchema);
+export default model<IOrder>('Orders', OrderSchema);
