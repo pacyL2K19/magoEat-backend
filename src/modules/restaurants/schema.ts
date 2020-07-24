@@ -1,5 +1,5 @@
 import { IRestaurant } from './model';
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, model } from 'mongoose';
 
 const RestauSchema : Schema = new Schema ({
     label : {
@@ -24,3 +24,5 @@ const RestauSchema : Schema = new Schema ({
         required : false
     }
 })
+
+export default mongoose.model<IRestaurant>('Restaurant', RestauSchema);
