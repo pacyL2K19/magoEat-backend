@@ -15,7 +15,7 @@ class Environment {
     getPort () : number {
         if (this.environment === Environments.dev_environnement ) {
             /**
-             * In developpement :: port 8081
+             * In developpement :: port 5555
              */
             return 5555
         } else if (this.environment === Environments.local_environnement ) {
