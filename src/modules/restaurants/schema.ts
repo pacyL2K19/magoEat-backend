@@ -1,5 +1,5 @@
 import { IRestaurant } from './model';
-import mongoose, { Schema, model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const RestauSchema : Schema = new Schema ({
     label : {

@@ -1,5 +1,5 @@
 import { IOrder } from './model';
-import mongoose, { Schema, model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 const commonOptions = {
     type : String,
     required : true,
