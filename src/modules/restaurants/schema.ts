@@ -25,4 +25,4 @@ const RestauSchema : Schema = new Schema ({
     }
 })
 
-export default mongoose.model<IRestaurant>('Restaurant', RestauSchema);
+export default model<IRestaurant>('Restaurant', RestauSchema);
