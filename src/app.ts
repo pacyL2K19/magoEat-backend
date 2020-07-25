@@ -22,7 +22,7 @@ class App {
         this.app = express ();
         this.configApp ();
         this,this.setupDB ();
-        this.app.use(routes); // for all routes avoiding maany useless lines of code
+        this.app.use('/api/v2',routes); // for all routes avoiding maany useless lines of code
         this.commonRoute.route(this.app);
     }
 
