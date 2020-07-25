@@ -1,12 +1,12 @@
 import { UserController } from './../controllers/users.controller';
-import { Application, Request, Response, Router } from 'express';
+import { Router } from 'express';
 
 /**
  * @class for user routes
  */
 export class UserRoutes {
     private userController : UserController = new UserController ()
-    public route (router : Router) {
+    public routes (router : Router) {
         router.route('/login')
             .post(this.userController.login);
         router.route('/signup')
