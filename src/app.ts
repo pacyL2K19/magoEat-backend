@@ -22,8 +22,8 @@ class App {
         this.app = express ();
         this.configApp ();
         this,this.setupDB ();
-        this.app.use(routes)
-        this.commonRoute.route(this.app)
+        this.app.use(routes); // for all routes avoiding maany useless lines of code
+        this.commonRoute.route(this.app);
     }
 
     private configApp () : void {
