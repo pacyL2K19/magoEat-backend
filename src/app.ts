@@ -1,11 +1,11 @@
-import { CommonRoutes } from './routes/common.routes';
+// import { CommonRoutes } from './routes/common.routes';
 import * as bodyParser from 'body-parser';
 import express from 'express';
 import * as mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
-// import { UserRoutes } from './routes/users.routes';
-import routes from './routes/'
+import { UserRoutes } from './routes/users.routes';
+// import {userRoute} from './routes/'
 
 class App {
     public app : express.Application;
@@ -15,15 +15,16 @@ class App {
      * As you can face tsc trouble when you compile
      */
     public mongoUrl : string | undefined = process.env.DATABASE_URL; 
-    // private userRoutes : UserRoutes = new UserRoutes ()
-    private commonRoute : CommonRoutes = new CommonRoutes () 
+    private userRoutes : UserRoutes = new UserRoutes ()
+    // private commonRoute : CommonRoutes = new CommonRoutes () 
 
     constructor () {
         this.app = express ();
         this.configApp ();
         this,this.setupDB ();
-        this.app.use('/api/v2',routes); // for all routes avoiding maany useless lines of code
-        this.commonRoute.route(this.app);
+        // this.app.use('/api/v2',route); // for all routes avoiding maany useless lines of code
+        // this.commonRoute.route(this.app);
+        this.userRoutes.route(this.app);
     }
 
     private configApp () : void {
@@ -41,12 +42,12 @@ class App {
                 useCreateIndex : true,
                 useFindAndModify : false
             })
-                .then(() => {
-                    console.log('Connected on mongodb')
-                })
-                .catch(() => {
-                    console.log('Failled to connect')
-                })
+                // .then(() => {
+                //     console.log('Connected on mongodb')
+                // })
+                // .catch(() => {
+                //     console.log('Failled to connect')
+                // })
         }
     }
     
