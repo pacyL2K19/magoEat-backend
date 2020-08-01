@@ -45,7 +45,7 @@ export class UserController {
                     })
             })
             .catch((err) => {
-                faillureResponse(res, 'Quwlque chose ne va pas, veuillez reessayer', req.body)
+                faillureResponse(res, 'Quelque chose ne va pas, veuillez reessayer', req.body)
             })
     }
     public async signup (req : Request, res : Response) {
