@@ -20,9 +20,11 @@ export class UserController {
                 status : 'Failled'
             })
         // we have to check if the user exists 
-        User.findOne({ username : value.username })
+        User.findOne({ phone : req.body.phone })
             .then((user) => {
-                if (user) {
+                // console.log(user)
+                if (!user) {
+                    
                     res.status(statusCode.forbiden).json({
                         success : false,
                         status : 'Faillure',
@@ -53,7 +55,7 @@ export class UserController {
         if (error !== undefined) {
             res.status(statusCode.bad_request).json({
                 success : false,
-                message : `Rassurez vous d'avoir rempli `
+                message : `Rassurez vous d'avoir rempli les elements requis dans un format requis `
             })
         }
         /**

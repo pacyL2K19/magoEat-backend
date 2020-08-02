@@ -25,7 +25,7 @@ class App {
 
     constructor () {
         this.app = express ();
-        console.log(process.env.DATABASE_URL)
+        // console.log(process.env.DATABASE_URL)
         this.configApp ();
         this,this.setupDB ();
         // this.app.use('/api/v2',route); // for all routes avoiding maany useless lines of code

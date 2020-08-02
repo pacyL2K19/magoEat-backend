@@ -5,7 +5,7 @@ export interface IUser extends Document {
     phone : String;
     password : String;
     accountType? : String;
-    signedInOn : Date;
+    signedInOn : String;
     profilePicture : String,
     adress? : String
 }

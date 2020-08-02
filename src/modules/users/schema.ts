@@ -35,7 +35,7 @@ const UserSchema : Schema = new Schema ({
         type : String
     },
     signedOn : {
-        type : Date
+        type : String
     }
 })
 
