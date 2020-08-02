@@ -13,12 +13,13 @@ export class UserController {
     public login (req : Request, res : Response ) {
         // first, let validate data : 
         const {error, value} = loginValidation.validate(req.body)
-        if (error !== undefined)
+        if (error !== undefined) {
             res.status(statusCode.bad_request).json({
                 success : false,
                 message : `Rassurez vous d'avoir bien completer les champs requis dans le format requis`,
                 status : 'Failled'
             })
+        } else {
         // we have to check if the user exists 
         User.findOne({ phone : req.body.phone })
             .then((user) => {
@@ -43,14 +44,16 @@ export class UserController {
                         successResponse(res, 'Ouverture de session reussie', req.body)
                     })
                     .catch((err) => {
-                        faillureResponse(res, 'Quwlque chose ne va pas, veuillez reessayer', req.body)
+                        // faillureResponse(res, 'Quwlque chose ne va pas, veuillez reessayer', req.body)
+                        console.log(err)
                     })
             })
             .catch((err) => {
-                faillureResponse(res, 'Quelque chose ne va pas, veuillez reessayer', req.body)
-            })
+                // faillureResponse(res, 'Quelque chose ne va pas, veuillez reessayer', req.body
+                console.log(err)
+            })}
     }
-    public async signup (req : Request, res : Response) {
+    public signup (req : Request, res : Response) {
         const { error, value } = signupValidation.validate(req.body)
         if (error !== undefined) {
             res.status(statusCode.bad_request).json({

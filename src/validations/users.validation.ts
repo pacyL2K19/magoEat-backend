@@ -20,7 +20,7 @@ const adressRegex = new RegExp(
     '^([a-zA-Z]{3,}\.\/){1,3}d?$'
 )
 const validMail = Joi.string().email({ minDomainSegments : 2, tlds : { allow : ['.com', '.org', '.net', '.cd']}})
-const stringField = Joi.string().min(5).max(120).optional()
+const stringField = Joi.string().min(5).max(120).optional().alphanum()
 
 export const loginValidation : Joi.ObjectSchema = Joi.object().keys({
     phone : Joi.string().min(9).max(13),
