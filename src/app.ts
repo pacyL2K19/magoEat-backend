@@ -1,12 +1,15 @@
-import { UserController } from './controllers/users.controller';
+// import { UserController } from './controllers/users.controller';
 import { CommonRoutes } from './routes/common.routes';
 import * as bodyParser from 'body-parser';
 import express, { Request, Response } from 'express';
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import helmet from 'helmet';
+import dotenv from 'dotenv'
 import { UserRoutes } from './routes/users.routes';
 // import {userRoute} from './routes/'
+
+dotenv.config()
 
 class App {
     public app : express.Application;
@@ -22,11 +25,12 @@ class App {
 
     constructor () {
         this.app = express ();
+        console.log(process.env.DATABASE_URL)
         this.configApp ();
         this,this.setupDB ();
         // this.app.use('/api/v2',route); // for all routes avoiding maany useless lines of code
         this.userRoutes.route(this.app);
-        // this.commonRoute.route(this.app);
+        this.commonRoute.route(this.app);
     }
 
     private configApp () : void {
@@ -49,12 +53,14 @@ class App {
                 useCreateIndex : true,
                 useFindAndModify : false
             })
-                // .then(() => {
-                //     console.log('Connected on mongodb')
-                // })
-                // .catch(() => {
-                //     console.log('Failled to connect')
-                // })
+                .then(() => {
+                    console.log('Connected on mongodb')
+                })
+                .catch(() => {
+                    console.log('Failled to connect')
+                })
+        } else {
+            console.log(`didn't connect`)
         }
     }
     

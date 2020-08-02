@@ -7,11 +7,16 @@ import { Application, Request, Response } from 'express';
 export class UserRoutes {
     private userController : UserController = new UserController ()
     public route (app : Application) {
-        app.post('api/v2/login', (req : Request, res : Response) => {
+        app.post('/api/v2/login', (req : Request, res : Response) => {
             this.userController.login(req, res)
         })
-        app.post('api/v2/signup', (req : Request, res : Response) => {
+        app.post('/api/v2/signup', (req : Request, res : Response) => {
             this.userController.signup(req, res)
         })
+        // app.get('/api/v2', (req : Request, res : Response) => {
+        //     res.status(200).json({
+        //         message : 'ok'
+        //     })
+        // })
     }
 }

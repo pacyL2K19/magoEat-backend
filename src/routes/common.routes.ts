@@ -4,7 +4,7 @@ import User from '../modules/users/schema'
 
 export class CommonRoutes {
     public route (app : Application) {
-        app.use('*', (req : Request, res : Response, next : NextFunction) => {
+        app.use('/api/login', (req : Request, res : Response, next : NextFunction) => {
             res.status(statusCode.unauthorized).send({
                 message : `Un probleme avec l'application ?`,
                 success : false,
